@@ -18,8 +18,8 @@ const db = require("../db");
  *    200:
  *     description: List of students
  */
-router.get("/",(req,res)=>{
-    db.query("SELECT * FROM students",(err,results)=>{
+router.get("/",async(req,res)=>{
+   await db.query("SELECT * FROM students",(err,results)=>{
         if(err){
             return res.status(500).json({error:err.message});
         }
